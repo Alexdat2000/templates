@@ -1,6 +1,6 @@
-//https://codeforces.com/edu/course/2/lesson/4/1/practice/contest/273169/problem/A
-
-// segment tree with operations: get sum on segment and change 1 element
+// https://codeforces.com/edu/course/2/lesson/4/1/practice/contest/273169/problem/A
+// segment tree with operations: get_sum min on segment and change 1 element
+// author: Alexdat2000
 
 #include <iostream>
 
@@ -23,14 +23,14 @@ void build(int v, int l, int r) {
     tree_sm[v] = tree_sm[v * 2 + 1] + tree_sm[v * 2 + 2];
 }
 
-int get(int v, int l, int r, int ql, int qr) {
+int get_sum(int v, int l, int r, int ql, int qr) {
     if (ql <= l && r <= qr)
         return tree_sm[v];
     if (l >= qr || r <= ql)
         return 0;
 
     int m = (l + r) / 2;
-    return get(v * 2 + 1, l, m, ql, qr) + get(v * 2 + 2, m, r, ql, qr);
+    return get_sum(v * 2 + 1, l, m, ql, qr) + get_sum(v * 2 + 2, m, r, ql, qr);
 }
 
 void upd(int v, int l, int r, int pos, int val) {
@@ -55,12 +55,12 @@ signed main() {
     build(0, 0, n);
 
     while (q--) {
-        int type, x, y;  // type = 1 - update, type = 2 - get
+        int type, x, y;  // type = 1 - update, type = 2 - get_sum
         cin >> type >> x >> y;  // 0-indexing
         if (type == 1) {
             upd(0, 0, n, x, y); // a[x] = y
         } else {
-            cout << get(0, 0, n, x, y) << "\n";  // a[x] + a[x + 1] + \ldots + a[y - 1]
+            cout << get_sum(0, 0, n, x, y) << "\n";  // a[x] + a[x + 1] + \ldots + a[y - 1]
         }
     }
     return 0;
