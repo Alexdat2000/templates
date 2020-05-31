@@ -1,5 +1,5 @@
 // https://codeforces.com/edu/course/2/lesson/4/1/practice/contest/273169/problem/A
-// segment tree with operations: get_sum min on segment and change 1 element
+// segment tree with operations: get_min on segment and change 1 element
 // author: Alexdat2000
 
 #include <iostream>
