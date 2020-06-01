@@ -1,4 +1,5 @@
-//
-// Created by Mi on 01.06.2020.
-//
+//test
 
+int main() {
+    return 0;
+}
