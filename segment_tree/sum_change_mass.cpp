@@ -42,7 +42,7 @@ void mass_add(int v, int l, int r, int ql, int qr, int val) {
     tree_sum[v] = tree_sum[v * 2 + 1] + tree_sum[v * 2 + 2];
 }
 
-int get_and(int v, int l, int r, int ql, int qr) {
+int get_sum(int v, int l, int r, int ql, int qr) {
     push(v, l, r);
 
     if (ql <= l && r <= qr) {
@@ -53,7 +53,7 @@ int get_and(int v, int l, int r, int ql, int qr) {
         return 0;
 
     int m = (l + r) / 2;
-    return get_and(v * 2 + 1, l, m, ql, qr) + get_and(v * 2 + 2, m, r, ql, qr);
+    return get_sum(v * 2 + 1, l, m, ql, qr) + get_sum(v * 2 + 2, m, r, ql, qr);
 }
 
 signed main() {
@@ -70,7 +70,7 @@ signed main() {
         } else {
             int l, r;
             cin >> l >> r;
-            cout << get_and(0, 0, n, l, r) << "\n";
+            cout << get_sum(0, 0, n, l, r) << "\n";
         }
     }
     return 0;
