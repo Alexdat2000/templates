@@ -91,7 +91,7 @@ int hld(int u, int v) {
         int lc = v;
         if (level[u] <= level[v])
             lc = u;
-        return max(tree_get(tree_index[lc], tree_index[u] + 1), tree_get(tree_index[lc], tree_index[v] + 1));
+        return max(tree_get(tree_index[lc], tree_index[u] + 1), tree_get(tree_index[lc] - 1, tree_index[v] + 1));
     }
 
     if (level[p1] < level[p2]) {
