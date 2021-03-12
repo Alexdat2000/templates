@@ -1,7 +1,3 @@
-// Informatics: 113706
-// HLD with operations: max on path and change element
-
-
 #include <iostream>
 #include <vector>
 #include <climits>
