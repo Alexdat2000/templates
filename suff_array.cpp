@@ -83,5 +83,20 @@ signed main() {
         cout << i << " ";
     }
     cout << endl;
+
+    vector <int> lcp(n);
+    int k = 0;
+    for (int i = 0; i < n - 1; i++) {
+        int pos = cl[i];
+        while (s[i + k] == s[order[pos - 1] + k]) {
+            k++;
+        }
+        lcp[pos] = k;
+        k = max(0, k - 1);
+    }
+    for (int i = 1; i < n; i++) {
+        cout << lcp[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
