@@ -1,2 +1,5 @@
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLOCAL -g -Wall -Wextra -D_GLIBCXX_DEBUG -Woverflow")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=bounds,address,undefined")
+
+add_executable(a a.cpp)
+target_precompile_headers(a PRIVATE stdc++.h)
